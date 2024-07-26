@@ -1,85 +1,137 @@
-PDF Merger Application
-Created by Ali Khaled
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Merger Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #007bff;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        code {
+            color: #d63384;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PDF Merger Application</h1>
+        <p><strong>Created by Ali Khaled</strong></p>
 
-Overview
-This project provides a simple web interface to merge two PDF files. Users can upload two PDF files, and the application will merge them into one PDF, which can then be downloaded.
+        <h2>Overview</h2>
+        <p>This project provides a simple web interface to merge two PDF files. Users can upload two PDF files, and the application will merge them into one PDF, which can then be downloaded.</p>
 
-Features
-Upload two PDF files.
-Merge the uploaded PDFs into a single file.
-Download the merged PDF.
-Simple and intuitive web interface.
-Prerequisites
-Python 3.x
-Flask
-PyPDF2
-pdf2image
-Pillow
-Poppler (for Windows)
-Directory Structure
-markdown
-Copy code
-mergePDF/
+        <h2>Features</h2>
+        <ul>
+            <li>Upload two PDF files.</li>
+            <li>Merge the uploaded PDFs into a single file.</li>
+            <li>Download the merged PDF.</li>
+            <li>Simple and intuitive web interface.</li>
+        </ul>
+
+        <h2>Prerequisites</h2>
+        <ul>
+            <li>Python 3.x</li>
+            <li>Flask</li>
+            <li>PyPDF2</li>
+            <li>pdf2image</li>
+            <li>Pillow</li>
+            <li>Poppler (for Windows)</li>
+        </ul>
+
+        <h2>Directory Structure</h2>
+        <pre>
+<code>mergePDF/
 │
 ├── app.py
 └── templates/
     └── upload.html
-Installation
-Clone the Repository:
+</code>
+        </pre>
 
-bash
-Copy code
-git clone <repository-url>
-cd mergePDF
-Set Up the Virtual Environment:
-
-bash
-Copy code
-python -m venv venv
+        <h2>Installation</h2>
+        <ol>
+            <li><strong>Clone the Repository:</strong>
+                <pre><code>git clone &lt;repository-url&gt;
+cd mergePDF</code></pre>
+            </li>
+            <li><strong>Set Up the Virtual Environment:</strong>
+                <pre><code>python -m venv venv
 venv\Scripts\activate  # For Windows
-# source venv/bin/activate  # For macOS/Linux
-Install Required Packages:
+# source venv/bin/activate  # For macOS/Linux</code></pre>
+            </li>
+            <li><strong>Install Required Packages:</strong>
+                <pre><code>pip install Flask PyPDF2 pdf2image Pillow</code></pre>
+            </li>
+            <li><strong>Install Poppler:</strong>
+                <p>Download and install Poppler for Windows from <a href="https://github.com/oschwartz10612/poppler-windows/releases/">this GitHub repository</a>.</p>
+                <p>Extract the contents and add the path to the <code>bin</code> directory to your system PATH.</p>
+            </li>
+        </ol>
 
-bash
-Copy code
-pip install Flask PyPDF2 pdf2image Pillow
-Install Poppler:
+        <h2>Running the Application</h2>
+        <ol>
+            <li><strong>Ensure the Directory Structure is Correct.</strong></li>
+            <li><strong>Run Your Flask Application:</strong>
+                <pre><code>python app.py</code></pre>
+            </li>
+            <li><strong>Open Your Web Browser and Navigate to:</strong>
+                <pre><code>http://127.0.0.1:5000/</code></pre>
+            </li>
+        </ol>
+        <p>This should now correctly display the upload form and allow you to merge PDFs. If you encounter any issues, please let me know!</p>
 
-Download and install Poppler for Windows from this GitHub repository.
-Extract the contents and add the path to the bin directory to your system PATH.
-Running the Application
-Ensure the Directory Structure is Correct.
-Run Your Flask Application:
-bash
-Copy code
-python app.py
-Open Your Web Browser and Navigate to:
-arduino
-Copy code
-http://127.0.0.1:5000/
-This should now correctly display the upload form and allow you to merge PDFs. If you encounter any issues, please let me know!
+        <h2>Deployment on Windows Server</h2>
+        <ol>
+            <li><strong>Install Required Software on the Server:</strong>
+                <ul>
+                    <li>Install Python, Pip, and Virtualenv.</li>
+                    <li>Install IIS and configure FastCGI.</li>
+                    <li>Install and configure WFastCGI.</li>
+                </ul>
+            </li>
+            <li><strong>Set Up Your Flask Application:</strong>
+                <ul>
+                    <li>Create a project directory on the server.</li>
+                    <li>Create a virtual environment and install dependencies.</li>
+                    <li>Copy your Flask application files to the project directory.</li>
+                </ul>
+            </li>
+            <li><strong>Configure IIS to Serve the Flask Application:</strong>
+                <ul>
+                    <li>Create a Web Application in IIS.</li>
+                    <li>Configure Handler Mappings.</li>
+                    <li>Configure the <code>web.config</code> file.</li>
+                </ul>
+            </li>
+            <li><strong>Start and Test Your Application:</strong>
+                <ul>
+                    <li>Start IIS.</li>
+                    <li>Open a web browser and navigate to <code>http://your-server-ip/flaskapp</code>.</li>
+                </ul>
+            </li>
+        </ol>
 
-Deployment on Windows Server
-Install Required Software on the Server:
+        <h2>Author</h2>
+        <p><strong>Ali Khaled</strong></p>
 
-Install Python, Pip, and Virtualenv.
-Install IIS and configure FastCGI.
-Install and configure WFastCGI.
-Set Up Your Flask Application:
-
-Create a project directory on the server.
-Create a virtual environment and install dependencies.
-Copy your Flask application files to the project directory.
-Configure IIS to Serve the Flask Application:
-
-Create a Web Application in IIS.
-Configure Handler Mappings.
-Configure the web.config file.
-Start and Test Your Application:
-
-Start IIS.
-Open a web browser and navigate to http://your-server-ip/flaskapp.
-Author
-Ali Khaled
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+        <h2>License</h2>
+        <p>This project is licensed under the MIT License - see the <a href="LICENSE">LICENSE</a> file for details.</p>
+    </div>
+</body>
+</html>
